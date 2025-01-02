@@ -15,6 +15,72 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          _searchField(),
+        ],
+      ),
+    );
+  }
+
+  Container _searchField() {
+    return Container(
+      margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+            color: const Color(0xff1D1617).withValues(alpha: 0.1),
+            blurRadius: 40,
+            spreadRadius: 0.0),
+      ]),
+      child: TextField(
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: const EdgeInsets.all(12),
+          hintText: 'Search Pancake',
+          hintStyle: const TextStyle(
+            color: Color(0xffDDDADA),
+            fontSize: 14,
+          ),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(16),
+            child: SvgPicture.asset(
+              'assets/icons/Search.svg',
+              height: 20,
+              width: 20,
+            ),
+          ),
+          suffixIcon: Container(
+            // IntrinsicHeight
+            width: 60,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const VerticalDivider(
+                  // color: Color(0xffDDDADA),
+                  color: Colors.black,
+                  indent: 10,
+                  endIndent: 10,
+                  thickness: 0.1,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: SvgPicture.asset(
+                    'assets/icons/Filter.svg',
+                    height: 20,
+                    width: 20,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide.none,
+          ),
+        ),
+      ),
     );
   }
 }
